@@ -1,0 +1,122 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+header {
+    /* border: 5px solid red; */
+    width: 100%;
+    height: 90vh;
+    /* 90% okna na výšku 90vh viu port height možno i  min-height: 90vh; */
+    background: url(img/bg-photo.jpg);
+    /* url() je cesta k obrázku */
+    background-repeat: no-repeat;
+    /*vypnutí opakování v případě malého formátu opakování fotky na vyplnění místa */
+    background-size: cover;
+    /* přizpůsobí místu největší část fotky */
+    background-position: center;
+    /* srovná celou fotku na střed bez ořezání */
+    background-attachment: fixed;
+    /* ˇfotka pojede při scrolingu s pohledem */
+    display: flex;
+    /*to co bude flexibilní musí být obaleno, buď header nebo div ale vždy prvek obalit  */
+    flex-direction: column;
+    /* row řadek z leva do prava column sloupec od shora dolu a to se posouvá příkazy po ose hlavní nebo vedlejší osa*/
+    justify-content: center; 
+    /* hlavní osa, flex-start dej to na začátek vlevo,center střed, flex-end= do prava na konec */
+    align-items: center;
+    /* vedlejší osa , když vedlejší i hlavní osa jsou na center je to ideal střed*/
+}
+
+header img {
+    width: 300px;
+    /* rotace obrázku */
+    transform: rotate(-20deg);
+    animation: floating 3s alternate infinite linear;
+    /* přiřazení ke @keyframes nastavení času a alternate tam a zpět animace) ( (infinite nekonečno) a směru */
+}
+
+header h1 {
+    font-size: 70px;
+    color: #16210b;
+    letter-spacing: 3px;
+    text-align: center;
+    /* text-align ještě zarovná vnitřek textu pro posunutí na střed v mobilní verzy - důležité */
+    text-shadow: 5px 5px 20px rgb(255, 255, 255);
+    -webkit-text-stroke: white 0.2px;
+    /* stroke obrys písmenek */
+}
+/* About-us obaleno Clasou */
+.about-us {
+    display: flex;
+    flex-direction: row;
+
+}
+.about-us-text {
+   background: linear-gradient(rgb(2, 86, 32), rgb(3, 4, 6)); 
+   color: white;
+   padding: 15px;
+   margin: 10px;
+   box-shadow: 5px 5px 20px black;
+   text-align: justify;
+   position: relative;
+   /* když se zarovnává proti výchozí pozici pod to: top, left, right, botom, nahoru minus, dolu plus 1:19hod*/
+   top: -80px;
+}
+
+/* photo-galery */
+.photo-galery {
+    margin-top: -40px;
+}
+.images {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* wrap zalomování pod sebe, výchozí je no-wrap,  */
+    justify-content: center;
+}
+
+.one-image {
+    padding: 0 22px 20px;
+} 
+.one-image img {
+/* transform: scale(1); výchozí */
+transition: all 0.5s linear;
+} 
+.one-image img:hover {
+   transform: scale(1.1); 
+   /* transition: all 0.5s linear; */
+   /* vem all všechny ty vlastnosti které se mění a měň je plynule 0,5s , linear je výchozí, ale stačí když to bude jen výchozí verzi bez hover*/
+}
+footer {
+    background: #082208;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 100%, 70% 100%, 30% 100%, 0 100%, 0% 30%);
+    /* vytvarování čehokoliv   https://bennettfeely.com/clippy/ */
+}
+footer p {
+    color: white;
+    text-align: center;
+    /* line-height: 50px;a height px si musí odpovídat kdybych nepoužil flex box */
+
+}
+
+/* Keyframes klíčové slovo  jakýkoli název třeba floating*/
+/* pak se musí přes animation přiřadit k tomu s čím hýbe čas a směr*/
+@keyframes floating {
+   0% {
+    transform: translateY(0px)
+    /* v 0% buď na ose y 0px na začátku  */
+    
+   } 
+   100% {
+    transform: translateY(-35px);
+    /* ve 100% dole buď na -15px  */
+    
+   }
+}
